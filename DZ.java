@@ -87,6 +87,24 @@ public class DZ
         {
             return wnode;
         }
-        // return wnode;
+        if (redcheck(wnode.right) && !redcheck(wnode.left)) 
+        {
+            wnode = goleft(wnode);
+            paint(wnode, wnode.left);
+        }
+        if (redcheck(wnode.left) && !redcheck(wnode.right)) 
+        {
+            wnode = goright(wnode);
+            paint(wnode, wnode.right);
+        }
+        if (redcheck(wnode.right) && redcheck(wnode.left)) 
+        {
+            wnode.color = !wnode.color;
+            wnode.left.color = false;
+            wnode.right.color = false;
+        }
+        
+        return wnode;
     }
+
 }
