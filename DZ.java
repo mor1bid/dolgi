@@ -69,5 +69,24 @@ public class DZ
         b.color = change;
     }
 
-    
+    node insert(node wnode, int data) 
+    {
+        if (wnode == null) 
+        {
+            return new node(data);
+        }
+        if (data < wnode.data) 
+        {
+            wnode.left = insert(wnode.left, data);
+        }
+        else if (data > wnode.data) 
+        {
+            wnode.right = insert(wnode.right, data);
+        }
+        else 
+        {
+            return wnode;
+        }
+        // return wnode;
+    }
 }
