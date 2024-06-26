@@ -61,4 +61,13 @@ public class DZ
         }
         return (work.color == true);
     }
+
+    void paint(node a, node b) 
+    {
+        boolean change = a.color;
+        a.color = b.color;
+        b.color = change;
+    }
+
+    
 }
