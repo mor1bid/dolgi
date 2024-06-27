@@ -29,7 +29,7 @@ class node
     }
 }
 
-public class DZ 
+public class Tree 
 {
     private static node root = null;
 
@@ -107,4 +107,36 @@ public class DZ
         return wnode;
     }
 
+    void move(node wnode)
+    {
+        boolean red = true;
+        boolean black = false;
+        if (wnode != null)
+        {
+            move(wnode.left);
+            char kid = '•';
+            if (wnode.color == black) 
+            {
+                kid = '0';
+            }
+            System.out.print(wnode.data + ""+kid+"");
+            move(wnode.right);
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        Tree node = new Tree();
+        Scanner scan = new Scanner(System.in);
+        char ch;
+        while (ch == 'Y' || ch == 'y') 
+        {
+            System.out.println("Введите число:\n");
+            int num = scan.nextInt();
+            root = node.insert(root, num);
+            node.move(root);
+            System.out.println("Продолжить? (y/n)\n");
+            ch = scan.next().charAt(0);
+        }
+    }
 }
