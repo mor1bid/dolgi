@@ -114,10 +114,10 @@ public class Tree
         if (wnode != null)
         {
             move(wnode.left);
-            char kid = '•';
+            char kid = 'R';
             if (wnode.color == black) 
             {
-                kid = '0';
+                kid = 'B';
             }
             System.out.print(wnode.data + ""+kid+"");
             move(wnode.right);
@@ -129,14 +129,16 @@ public class Tree
         Tree node = new Tree();
         Scanner scan = new Scanner(System.in);
         char ch;
-        while (ch == 'Y' || ch == 'y') 
+        do
         {
-            System.out.println("Введите число:\n");
+            System.out.println("Введите число:");
             int num = scan.nextInt();
             root = node.insert(root, num);
             node.move(root);
-            System.out.println("Продолжить? (y/n)\n");
+            System.out.println("\nПродолжить? (y/n)");
             ch = scan.next().charAt(0);
         }
+        while (ch == 'Y' || ch == 'y');
+        scan.close();
     }
 }
